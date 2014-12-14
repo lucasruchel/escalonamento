@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+	<fieldset class="cpu-time-field">
+		<legend>Tempo do Quantum</legend>
+		
+		<input type="text" id="quantum-time" class="value">
+		<input type="button" name="Adiciona" id="add-quantum" value="Adicionar">
+		<span class="alert"></span>
+	</fieldset>
+	
+	<fieldset class="process-create-field">
+		<legend>Dados do Processo</legend>
+		
+		<input type="text" id="priority" class="value" placeholder="Prioridade">
+		<input type="text" id="burst-time" class="value" placeholder="Tempo de Burst">
+		<input type="button" name="Adiciona" id="add-process" value="Adicionar">
+		<span class="alert"></span>
+	</fieldset>
+	<fieldset>
+		<legend>
+			Algoritmos para Execução
+		</legend>
+		<div class="checkControl">
+			<input type="checkbox" name="fcfs" value="fcfs" class="algorith-option">	First Come, First Served
+		</div>
+		<div class="checkControl">
+			<input type="checkbox" name="sjf" value="sjf" class="algorith-option">	Shortest Job First
+		</div>
+		<div class="checkControl">
+			<input type="checkbox" name="srtn" value="srtn" class="algorith-option">	Shortest Remaining Time Next
+		</div>
+		<div class="checkControl">
+			<input type="checkbox" name="rr" value="rr" class="algorith-option">	Round-Robin
+		</div>
+
+		<input type="button" name="execute" id="execute" value="Executa Algoritmos">
+		
+	</fieldset>
+	<div class="process-list">
+		<table id="processTable">
+			<caption>Tabela de Processos</caption>
+			<thead>
+				<tr>
+					<th>Ordem de Chegada</th>
+					<th>Prioridade</th>
+					<th>Tempo de Burst</th>
+				</tr>
+			</thead>
+			<tbody id="processData">
+				
+			</tbody>
+		</table>	
+	</div>
+
+
+	<script src="js/worker-process.js" type="text/javascript" charset="utf-8" async defer></script>	
+	<script src="js/event-handler.js" type="text/javascript" charset="utf-8" async defer></script>
+
+</body>
+</html>
+
