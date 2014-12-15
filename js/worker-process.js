@@ -16,3 +16,33 @@ Process = function(insertedPosition,priority,burstTime){
 processList = [];
 
 
+function roundRobin(){
+	var tableData = document.querySelector("#rrData");
+
+
+
+
+}
+
+function shortestRemainTimeNext(){
+	alert("srtn");
+}
+
+function shortestJobFirst(){
+
+}
+function firstComeFirstServed(){
+
+	var tableProcessData = document.querySelector("#fcfsData");
+	var averageWait=0;
+	//reset entry
+	tableProcessData.innerHTML="";
+
+	
+	for(var i=0 ; i < processList.length ; i++){
+		tableProcessData.innerHTML += "<tr>"+"<td>" + i +"</td>" +"<td>" + i +"</td>"+"<td>" + processList[i].priority +"</td>"+"<td>" + processList[i].burstTime +"</td>"+"<td>" + averageWait +"</td>"+ "</tr>";
+		
+		averageWait += processList[i].burstTime;
+	}
+}
+

@@ -42,7 +42,7 @@
 		</div>
 
 		<input type="button" name="execute" id="execute" value="Executa Algoritmos">
-		
+
 	</fieldset>
 	<div class="process-list">
 		<table id="processTable">
@@ -59,8 +59,76 @@
 			</tbody>
 		</table>	
 	</div>
-
-
+	<div class="execution-block">
+		<div class="algorithTable">
+			<table>
+				<caption>Round Robin</caption>
+				<thead>
+					<tr>
+						<th>Ordem de Execução</th>
+						<th>Ordem de chegada na Fila</th>
+						<th>Prioridade</th>
+						<th>Burst</th>
+						<th>Tempo de Espera</th>
+					</tr>
+				</thead>
+				<tbody id="rrData">
+					
+				</tbody>
+			</table>
+		</div>
+		<div class="algorithTable">
+			<table>
+				<caption>First Come, First Served</caption>
+				
+				<thead>
+					<tr>
+						<th>Ordem de Execução</th>
+						<th>Ordem de chegada na Fila</th>
+						<th>Prioridade</th>
+						<th>Burst</th>
+						<th>Tempo de Espera</th>
+					</tr>
+				</thead>
+				<tbody id="fcfsData">
+					
+				</tbody>
+			</table>
+		</div>
+		<div class="algorithTable">
+			<table>
+				<caption>Shortest Remaining Time Next</caption>
+				<thead>
+					<tr>
+						<th>Ordem de Execução</th>
+						<th>Ordem de chegada na Fila</th>
+						<th>Prioridade</th>
+						<th>Burst</th>
+						<th>Tempo de Espera</th>
+					</tr>
+				</thead>
+				<tbody id="srtnData">
+					
+				</tbody>
+			</table>
+		</div><div class="algorit	hTable">
+			<table>
+				<caption>Shortest Job First</caption>
+				<thead>
+					<tr>
+						<th>Ordem de Execução</th>
+						<th>Ordem de chegada na Fila</th>
+						<th>Prioridade</th>
+						<th>Burst</th>
+						<th>Tempo de Espera</th>
+					</tr>
+				</thead>
+				<tbody id="sjfData">
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
 	<script src="js/worker-process.js" type="text/javascript" charset="utf-8" async defer></script>	
 	<script src="js/event-handler.js" type="text/javascript" charset="utf-8" async defer></script>
 

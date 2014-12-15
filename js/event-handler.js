@@ -44,12 +44,15 @@ btnExecute.addEventListener('click', function(){
 	
 	for (var i=0; i < operations.length ; i++){
 		if (operations[i].name == "srtn")
-			
+			shortestRemainTimeNext();
 		else if (operations[i].name == "rr")
-			alert("Round robin");
-		else if (operations[i].name == "fcfs")
-			alert("Round robin");
+			roundRobin();
+		else if (operations[i].name == "fcfs"){
+
+			firstComeFirstServed();
+			
+		}
 		else if (operations[i].name == "sjf")
-			alert("Round robin");
+			shortestJobFirst();
 	}
 });
