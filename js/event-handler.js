@@ -43,10 +43,11 @@ btnExecute.addEventListener('click', function(){
 	var operations = document.querySelectorAll(".algorith-option:checked");
 	
 	for (var i=0; i < operations.length ; i++){
-		if (operations[i].name == "srtn")
-			shortestRemainTimeNext();
+		if (operations[i].name == "priorityScheduler")
+			priorityScheduler();
 		else if (operations[i].name == "rr")
-			roundRobin();
+			window.setInterval(roundRobin(),1000);
+			
 		else if (operations[i].name == "fcfs"){
 
 			firstComeFirstServed();
