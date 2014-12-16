@@ -6,6 +6,8 @@ Process = function(insertedPosition,priority,burstTime){
 	this.priority = priority;
 	//set the time used by the process to perform the operation required
 	this.burstTime = burstTime;
+	//total executed time
+	this.executedTime = 0;
 }
 
 //This variable will storage the process 
@@ -13,12 +15,21 @@ Process = function(insertedPosition,priority,burstTime){
 //Use the defaults methods to push and pop elements like an generic List in JAVA
 processList = [];
 
+Array.prototype.clone = function(){
+	var temp = [];
+
+	for (var i=0; i < this.length; i++) {
+		temp.push(new Process(this[i].insertedPosition,this[i].priority,this[i].burstTime));
+	};
+	return temp;
+};
+
 //Necessario executar o quantum de CPU utilizando uma fila FIFO
 function roundRobin(){
 	//Seleciona o elemento que irá armazenar as informações
 	var tableProcessData = document.querySelector("#rrData");
 	//Atribuicao da lista para implementar o rr, copia da lista principal
-	var processList_rr = processList.slice(0);
+	var processList_rr = processList.clone();
 	//Tempo de espera
 	var averageWait = 0;
 	//Contador de Execucoes
@@ -43,6 +54,9 @@ function roundRobin(){
 				if(processList_rr[i].burstTime-quantum > 0){
 					//Subtrai o valor do quantum do tempo de burst do processo
 					processList_rr[i].burstTime -= quantum;
+
+					processList_rr[i].executedTime = quantum;
+
 					//Adiciona na tabela os dados do processo
 					addRow(tableProcessData,cont,processList[i].insertedPosition,processList[i].priority,processList[i].burstTime,averageWait);
 
@@ -51,6 +65,7 @@ function roundRobin(){
 				}else{
 					//Atribui 0 a tempo de burst do processo.
 					var temp = processList_rr[i].burstTime;
+					processList_rr[i].executedTime = processList_rr[i].burstTime;
 					processList_rr[i].burstTime = 0;
 
 					//Adiciona na tabela os dados do processo
@@ -70,7 +85,7 @@ function roundRobin(){
 //Necessario ordenar por prioridade
 function priorityScheduler(){
 	var tableProcessData = document.querySelector("#prioritySchedulerData");
-	var processList_ps = processList.slice(0);
+	var processList_ps = processList.clone();
 	var averageWait = 0;
 	//Contador de Execucoes
 	var cont=0;
@@ -102,7 +117,7 @@ function sortByPriority(a,b){
 
 function shortestJobFirst(){
 	var tableProcessData = document.querySelector("#sjfData");
-	var processList_sjf = processList.slice(0);
+	var processList_sjf = processList.clone();
 	var averageWait = 0;
 	//Contador de Execucoes
 	var cont=0;
@@ -122,7 +137,7 @@ function firstComeFirstServed(){
 
 	var tableProcessData = document.querySelector("#fcfsData");
 	var averageWait=0;
-	var processList_fcfs = processList.slice(0);
+	var processList_fcfs = processList.clone();
 	//reset entry
 	tableProcessData.innerHTML="";
 
