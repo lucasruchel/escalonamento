@@ -41,25 +41,25 @@ function roundRobin(){
 				cont++;
 				//Testa se o tempo de burst vai ser maior que o do quantum, para o valor da subtracao não seja negativa
 				if(processList_rr[i].burstTime-quantum > 0){
-					//Testa se não é a primeira execucao
-					if(cont>1)
-						averageWait += quantum;
 					//Subtrai o valor do quantum do tempo de burst do processo
 					processList_rr[i].burstTime -= quantum;
 					//Adiciona na tabela os dados do processo
 					addRow(tableProcessData,cont,processList[i].insertedPosition,processList[i].priority,processList[i].burstTime,averageWait);
+
+					averageWait += quantum;
 				//Caso o tempo de burst restante do processo seja menor ou igual ao do quantum	
 				}else{
-					//Testa se não é a primeira execucao
-					if(cont>0)
-						//Se o tempo do quantum for maior do que é necessario para ser executado entao o tempo de espera é o mesmo que o de burst
-						averageWait += processList_rr[i].burstTime; 
 					//Atribui 0 a tempo de burst do processo.
+					var temp = processList_rr[i].burstTime;
 					processList_rr[i].burstTime = 0;
+					
 					//Adiciona na tabela os dados do processo
 					addRow(tableProcessData,cont,processList_rr[i].insertedPosition,processList_rr[i].priority,processList_rr[i].burstTime,averageWait);
+					//Se o tempo do quantum for maior do que é necessario para ser executado entao o tempo de espera é o mesmo que o de burst
+					averageWait += temp; 
 					// "Remove elemento" adicionando na verdade um elemento nulo na posição do processo que foi concluido
 					processList_rr[i] = null;
+					
 				}
 			}
 		}
