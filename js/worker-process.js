@@ -34,7 +34,7 @@ function roundRobin(){
 		//percorre a lista por todo seu comprimento
 		for(var i=0; i<processList_rr.length; i++){
 			//Caso a lista não esteja com a posicao i nula entra no if
-			if(processList_rr[i] != null){
+			if(processList_rr[i].burstTime > 0){
 				//seta o atributo de processo ativo até que o loop do-while tenha sido concluido
 				processAlive=true;
 				//incrementa o contador para uma execucao
@@ -52,14 +52,13 @@ function roundRobin(){
 					//Atribui 0 a tempo de burst do processo.
 					var temp = processList_rr[i].burstTime;
 					processList_rr[i].burstTime = 0;
-					
+
 					//Adiciona na tabela os dados do processo
 					addRow(tableProcessData,cont,processList_rr[i].insertedPosition,processList_rr[i].priority,processList_rr[i].burstTime,averageWait);
 					//Se o tempo do quantum for maior do que é necessario para ser executado entao o tempo de espera é o mesmo que o de burst
 					averageWait += temp; 
 					// "Remove elemento" adicionando na verdade um elemento nulo na posição do processo que foi concluido
-					processList_rr[i] = null;
-					
+					//processList_rr[i] = null;
 				}
 			}
 		}
