@@ -172,7 +172,7 @@ function addRow(element,cont,id,priority,burstTime,averageWait){
 		element.innerHTML += "<tr>"+"<td>" + cont +"</td>" +"<td>" + id +"</td>"+"<td>" + priority +"</td>"+"<td>" + burstTime +"</td>"+"<td>" + averageWait +"</td>"+ "</tr>";
 }
 function showAverage(element,maxTime,maxItens){
-	element.innerHTML += "<tr><td colspan='"+element.parentNode.rows[0].cells.length+"'><h3>Tempo médio de Execução: "+maxTime/maxItens+"ms</h3></td></tr>";	
+	element.innerHTML += "<tr><td colspan='"+element.parentNode.rows[0].cells.length+"'><h3>Tempo médio de Espera: "+maxTime/maxItens+"ms</h3></td></tr>";	
 }
 //----------------------------------------------------------------------
 //--------------- Funções para ordenar elementos -----------------------
